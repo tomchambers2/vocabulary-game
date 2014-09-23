@@ -1,8 +1,5 @@
 'use strict';
 
-/* Services */
-
-
 angular.module('myApp.services', [])
   .value('words', [{
     "en": "Good morning",
