@@ -1,6 +1,7 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 text-center">
 		<section ng-if="status.inProgress">
+			<timer seconds="30" finish="endGame()"></timer>
 			<h1>Round {{status.round}}</h1>
 			<p>Choose the matching word from the list below</p>
 			<h2>English word and definition</h2>
