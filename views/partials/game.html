@@ -14,7 +14,7 @@
 			<h1>Game over</h1>
 			<h2>Your final score: {{status.score}}</h2>
 			<form>
-				Your name: <input type="text"> <button type="submit">Submit score</button>
+				Your name: <input type="text" ng-model="form.name"> <button type="submit" ng-click="submitScore()">Submit score</button>
 			</form>
 	</div>
 </div>

@@ -1,13 +1,16 @@
 'use strict';
 
 angular.module('myApp.controllers')
-  .controller('GameCtrl', function($scope, getWords, highScore) {
+  .controller('GameCtrl', function($scope, $location, getWords, highScore) {
   	var scoreIncrement = 100;
 
     $scope.status = {
     	round: 1,
     	score: 0,
     	inProgress: true
+    };
+    $scope.form = {
+        name: ''
     };
 
     var loadNewWords = function() {

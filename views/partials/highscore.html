@@ -1,5 +1,12 @@
 <div class="row">
 	<div class="col-md-6 md-offset-3">
 		<h1>High score</h1>
+
+		<table>
+			<tr ng-repeat="row in highscores">
+				<td>{{row.name}}</td>
+				<td>{{row.score}}</td>
+			</tr>
+		</table>
 	</div>
 </div>
