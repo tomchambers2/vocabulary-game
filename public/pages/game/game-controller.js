@@ -34,9 +34,9 @@ angular.module('myApp.controllers')
 	    };
     };
 
-    $scope.endGame = function() {
+    $scope.$on('timer-ended', function() {
         $scope.status.inProgress = false;
-    }
+    })
 
     $scope.submitScore = function() {
     	//TODO: add validation to stop empty name submission

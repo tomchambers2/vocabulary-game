@@ -6,17 +6,21 @@ angular.module('myApp.directives', [])
 			restrict: 'E',
 			scope: {
 				seconds: '@',
-				finish: '&'
 			},
 			template: "<h2>{{seconds}} seconds remaining</h2>",
 			link: function(scope, element) {
 				var tick = $interval(function() {
 					scope.seconds -= 1;
 					if (scope.seconds <= 0) {
-						scope.finish();
+						scope.$emit('timer-ended');
 						$interval.cancel(tick);
 					};
-				}, 1000)
+
+					//performance: clear the interval if the user leaves game controller
+					scope.$on('$destroy', function() {
+						$interval.cancel(tick);
+					})
+				}, 1000);
 			}
-		}
-})
+		};
+});
