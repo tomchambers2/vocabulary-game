@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('myApp.controllers')
-  .controller('GameCtrl', function($scope) {
+  .controller('HighscoreCtrl', function($scope) {
     // write Ctrl here
 
   });
-
-
-

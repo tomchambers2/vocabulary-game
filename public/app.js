@@ -11,10 +11,13 @@ angular.module('myApp', [
 ]).config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/home', {
     templateUrl: 'partials/home.html',
-    controller: 'MyCtrl1'
-  }).when('/view2', {
-    templateUrl: 'partials/partial2.html',
-    controller: 'MyCtrl2'
+    controller: 'HomeCtrl'
+  }).when('/game', {
+    templateUrl: 'partials/game.html',
+    controller: 'GameCtrl'
+  }).when('/highscore', {
+    templateUrl: 'partials/highscore.html',
+    controller: 'HighscoreCtrl'
   }).otherwise({
     redirectTo: '/home'
   });

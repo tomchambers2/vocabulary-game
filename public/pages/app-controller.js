@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.controllers')
-  .controller('HomeCtrl', function($scope, $http) {
+  .controller('AppCtrl', function($scope, $http) {
 
     $http({
       method: 'GET',
