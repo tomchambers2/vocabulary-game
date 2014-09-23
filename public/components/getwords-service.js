@@ -18,18 +18,29 @@ angular.module('myApp.services')
 			usedWordsRound = [];
 		};
 
-		var getFreshWord = function(excluded) {
+		var getFreshWord = function(freshForGame) {
 			var pickedIndex = randomIndex(words);
-			console.log(pickedIndex);
-			
+
 			//check that this word has not been used before
-			for (var i=0; i<usedWordsGame.length; i++) {
-				if (pickedIndex === usedWordsGame[i]) {
-					console.log('used');
-				}
+			for (var i=0; i<usedWordsRound.length; i++) {
+				if (pickedIndex === usedWordsRound[i]) {
+					console.log('dupe in round')
+					return getFreshWord(freshForGame);
+				};
 			}
+			if (freshForGame) {
+				for (var i=0; i<usedWordsGame.length; i++) {
+					if (pickedIndex === usedWordsGame[i]) {
+						console.log('dupe in game')
+						return getFreshWord(freshForGame);
+					};
+				}
+			};
 
 			usedWordsRound.push(pickedIndex);
+			if (freshForGame) {
+				usedWordsGame.push(pickedIndex);
+			}
 
 			var wordsCopy = words.slice();
 			return words[pickedIndex];
@@ -37,13 +48,18 @@ angular.module('myApp.services')
 
 		var loadWords = function() {
 			usedWordsRound = [];
-			var answer = getFreshWord(usedWordsGame);
-			var wordTwo = getFreshWord(usedWordsRound);
-			var wordThree = getFreshWord(usedWordsRound);
+			var answer = getFreshWord(true);
+			var wordTwo = getFreshWord();
+			var wordThree = getFreshWord();
 
-			var words = [answer,wordTwo,wordThree];
+			var wordList = shuffleArray([answer,wordTwo,wordThree]);
 
-			return shuffleArray(words);
+			var words = {
+				answer: answer,
+				wordList: wordList
+			};
+
+			return words;
 		};		
 
 		return {

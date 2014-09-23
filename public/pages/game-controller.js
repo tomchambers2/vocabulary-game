@@ -27,12 +27,13 @@ angular.module('myApp.controllers')
 	    } else {
 	    	$scope.status.inProgress = false;
 	    };
-	   	//false: set inprogress to false, game over
-
     };
 
     $scope.submitScore = function() {
-    	highScore.submitScore($scope.form.name, $scope.status.score)
+    	//TODO: add validation to stop empty name submission
+
+    	highScore.submitScore($scope.form.name, $scope.status.score);
+    	$location.path('/highscore');
     }
 
     loadNewWords();
