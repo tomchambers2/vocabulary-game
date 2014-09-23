@@ -14,9 +14,9 @@ angular.module('myApp.controllers')
     	$scope.words = getWords.loadWords();
     };
 
-    $scope.checkAnswer = function(index) {
-    	if (index === $scope.words.answer) {
-    		$scope.score += scoreIncrement;
+    $scope.checkAnswer = function(answer) {
+    	if (answer === $scope.words.answer.es) {
+    		$scope.status.score += scoreIncrement;
     		loadNewWords();
 
 	    	if ($scope.status.round > 2) {

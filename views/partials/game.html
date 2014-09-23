@@ -7,7 +7,7 @@
 			<h3>{{words.answer.en}}</h3>
 			<h3>{{words.answer.def}}</h3>
 
-			<button ng-repeat="word in words.wordList" ng-click="checkAnswer()">{{word.es}}</button>
+			<button ng-repeat="word in words.wordList" ng-click="checkAnswer(word.es)">{{word.es}}</button>
 		</section>
 
 		<section ng-if="!status.inProgress">
@@ -20,5 +20,5 @@
 </div>
 
 <pre>
-	{{scope.words}}
+	{{status.score}}
 </pre>
