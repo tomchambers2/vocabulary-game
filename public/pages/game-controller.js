@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp.controllers')
-  .controller('GameCtrl', function($scope, $location, getWords, highScore) {
+  .controller('GameCtrl', function($scope, $location, getWords, highScore, shuffleArray) {
   	var scoreIncrement = 100;
 
     $scope.status = {
@@ -12,6 +12,8 @@ angular.module('myApp.controllers')
     $scope.form = {
         name: ''
     };
+
+    getWords.init();
 
     var loadNewWords = function() {
     	$scope.words = getWords.loadWords();

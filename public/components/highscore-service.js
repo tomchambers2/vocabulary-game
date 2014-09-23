@@ -13,10 +13,10 @@ angular.module('myApp.services')
 		      }
 		    }).
 		    success(function(data, status, headers, config) {
-		      console.log(status);
+		      console.log("Successfuly posted score data");
 		    }).
 		    error(function(data, status, headers, config) {
-		      console.log('Error!')
+		      console.log('An error occurred, server gave status code: '+status)
 		    });
 		};
 
@@ -24,13 +24,7 @@ angular.module('myApp.services')
 		    return $http({
 		      method: 'GET',
 		      url: '/api/highscore'
-		    }).
-		    success(function(data, status, headers, config) {
-		    	
-		    }).
-		    error(function(data, status, headers, config) {
-		      //$scope.name = 'Error!'
-		    });			
+		    });	
 		}
 
 		return {

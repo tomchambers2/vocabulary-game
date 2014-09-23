@@ -1,10 +1,10 @@
 <div class="row">
-	<div class="col-md-6 md-offset-3">
+	<div class="col-md-6 col-md-offset-3 text-center">
 		<h1>High score</h1>
 
-		<table>
-			<tr ng-repeat="row in highscores">
-				<td>{{row.name}}</td>
+		<table class="table">
+			<tr ng-repeat="row in highscores | orderBy:'score':true">
+				<td><strong>{{row.name}}</strong></td>
 				<td>{{row.score}}</td>
 			</tr>
 		</table>

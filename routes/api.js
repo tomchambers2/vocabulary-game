@@ -22,7 +22,6 @@ exports.submit = function (req, res) {
 };
 
 exports.highscore = function (req, res) {
-  console.log(highscores);
   res.json({
     highscores: highscores
   });
