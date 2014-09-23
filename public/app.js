@@ -10,13 +10,13 @@ angular.module('myApp', [
   'ngRoute'
 ]).config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/home', {
-    templateUrl: 'partials/home.html',
+    templateUrl: '/pages/home/home.html',
     controller: 'HomeCtrl'
   }).when('/game', {
-    templateUrl: 'partials/game.html',
+    templateUrl: '/pages/game/game.html',
     controller: 'GameCtrl'
   }).when('/highscore', {
-    templateUrl: 'partials/highscore.html',
+    templateUrl: '/pages/highscore/highscore.html',
     controller: 'HighscoreCtrl'
   }).otherwise({
     redirectTo: '/home'

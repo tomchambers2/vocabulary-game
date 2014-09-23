@@ -7,9 +7,11 @@ var highscores = [
   {name: 'Ted', score: 50}
 ];
 
+var name = 'Tom';
+
 exports.name = function (req, res) {
   res.json({
-  	name: 'Bob'
+  	name: name
   });
 };
 
@@ -17,6 +19,7 @@ exports.submit = function (req, res) {
 	console.log(req.body);
 
   highscores.push(req.body);
+  name = req.body.name;
 
   res.end();
 };
